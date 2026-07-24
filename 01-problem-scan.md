@@ -1,8 +1,7 @@
 # 📄 01-problem-scan.md — Problem Scan & Quick Problem Cards (Vin Smart Future)
 
-> **Học viên thực hiện:** Nguyễn Văn A (MSSV: 21010001)  
-> **Nhóm:** Vin-AI-Lab-01  
-> **Đơn vị giả định:** Vin Smart Future (Vingroup)
+> **Học viên thực hiện:** Lê Nguyễn Minh Đức 
+> **MSHV:** 2A202601013
 
 ---
 
