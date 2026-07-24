@@ -27,7 +27,7 @@ Trong các dự án khu đô thị đại quy mô của Vinhomes, các Chỉ huy
 | Field | Nội dung chi tiết |
 |---|---|
 | **1. Actor / Operator** | Nhà thầu chính / Chỉ huy trưởng công trình Vincons. |
-| **2. Current Workflow** | 1. Quản đốc và chủ thầu gửi báo cáo tiến độ/hình ảnh thực địa hằng ngày.<br>2. Chỉ huy trưởng giám định trực tiếp tiến độ & chất lượng.<br>3. Điều phối thủ công tài nguyên và nhân lực đội thợ giữa các nhà thầu phụ.<br>4. Tổng kết đánh giá nhật ký công trình sau hoàn thiện. 4 bước thủ công tốn 3-4 giờ/ngày. |
+| **2. Current Workflow** | 1. Quản đốc và chủ thầu gửi báo cáo tiến độ/hình ảnh thực địa hằng ngày.<br>2. Chỉ huy trưởng giám định trực tiếp tiến độ & chất lượng.<br>3. Điều phối thủ công tài nguyên và nhân lực đội thợ giữa các nhà thầu phụ.<br>4. Tổng kết đánh giá nhật ký công trình sau hoàn thiện. 4 bước thủ công tốn tổng cộng 4-5 giờ/ngày, trong đó Bước 2 chiếm phần lớn thời gian (xem Bottleneck). |
 | **3. Bottleneck** | **Bước 2 (Giám định tiến độ & chất lượng thực địa - ⏱ 180-240 phút/ngày):** Kiểm tra thủ công từng hạng mục thi công đối chiếu với bản vẽ/kế hoạch baseline, dễ bỏ sót lỗi kỹ thuật và chậm phát hiện nguy cơ vỡ tiến độ. |
 | **4. Business Impact** | Mỗi ngày trễ tiến độ thi công tại các đại dự án Vincons gây thiệt hại hàng trăm triệu đồng chi phí quản lý công trình, chậm chu kỳ mở bán/bàn giao căn hộ Vinhomes và lãng phí 25% hiệu suất nhân lực đội thợ. |
 | **5. Success Metric** | 1. Rút ngắn thời gian giám định tiến độ từ 4 giờ/ngày xuống dưới 30 phút/ngày (Efficiency).<br>2. Giảm 30% tỷ lệ trễ tiến độ thi công so với các dự án chưa thí điểm (Quality & Speed). |
@@ -80,7 +80,7 @@ Trong file mã nguồn prototype `prompt_prototype.py`, nhóm thiết lập 2 qu
 ### 📋 AI Readiness Checklist:
 * [x] **Dữ liệu:** Có sẵn dữ liệu bản vẽ tiến độ baseline (BIM/MS Project) và ứng dụng ghi nhận nhật ký công trình hàng ngày của Vincons.
 * [x] **Tầm kiểm soát rủi ro:** Rủi ro được kiểm soát hoàn toàn nhờ Human-in-the-loop (Chỉ huy trưởng phê duyệt mọi kế hoạch).
-* [x] **Sẵn sàng vận hành:** Các Chỉ huy trưởng sẵn sàng ứng dụng để giảm 80% thời gian làm báo cáo giấy tờ.
+* [x] **Sẵn sàng vận hành:** Các Chỉ huy trưởng sẵn sàng ứng dụng để giảm hơn 85% thời gian giám định & làm báo cáo giấy tờ (từ 4 giờ xuống dưới 30 phút/ngày, theo Success Metric).
 
 ### 📢 Quyết định cuối cùng:
 [x] **GO (Bắt đầu xây dựng Prototype)**
