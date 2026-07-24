@@ -63,11 +63,11 @@ Hãy sử dụng **4 Lenses** dưới đây để quét qua hoạt động vận
 ### 📝 List bài toán của tôi:
 | # | Subsidiary (VinFast/Xanh SM...) | Lens | Mô tả ngắn bài toán |
 |---|----------------------------------|------|---------------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
+| 1 | Xanh SM | Tốn thời gian | Tổng hợp hóa thông tin phản ánh về điều kiện xe từ tài xế trước khi quyết định bảo trì hoặc sửa chữa (ví dụ - pin hiệu suất thấp, cảm giác lái không tốt, tuổi thọ pin, độ bền của giảm xóc)| 
+| 2 | Vinhomes | Lặp lại | Tự động hóa các hoạt động đặt chỗ, thanh toán dịch vụ/phí thuế, các thao tác hủy/báo lỗi của cư dân (v.d. hủy lịch đặt sân tập, hoàn tiền vé bơi, vv.) |
+| 3 | Vincons | Tốn thời gian | Đánh giá tiến độ thi công và chất lượng thi công của các đội công nhân và các nhà thầu, nhằm điều phối thời gian và nhân lực hợp lý và giảm thiểu chi phí |
+| 4 | Vinmec | Stakeholder pain | Bệnh nhân phản ánh về việc chờ khám tốn thời gian quá lâu / không thể đặt lịch khám do bác sĩ dành thời gian quá lâu đối với từng bệnh nhân / phân công tại phòng khám bệnh viện chênh lệch |
+| 5 | Vincons |  |
 
 ---
 
@@ -77,24 +77,24 @@ Chọn **top 3 bài toán** từ danh sách trên và hoàn thiện **3 Quick Pr
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│ QUICK PROBLEM CARD #___                                     │
+│ QUICK PROBLEM CARD #1                                     │
 │                                                             │
-│ Bài toán (1 câu): ________________________________________  │
+│ Bài toán (1 câu): Quản lý tiến độ và chất lượng xây dựng tùy theo công trình, subcontractor và đội thợ để điều phối nhân lực hiệu quả  │
 │ Công ty thành viên: [ ] VinFast  [ ] Xanh SM  [ ] Vinhomes  │
-│                     [ ] Vinmec   [ ] Khác (Ghi rõ)________  │
+│                     [ ] Vinmec   [ ] Khác (Ghi rõ) Vincons  │
 │                                                             │
-│ Ai đang đau (Actor)? ______________________________________ │
+│ Ai đang đau (Actor)? Nhà thầu chính                          │
 │                                                             │
 │ Workflow thủ công hiện tại (3-5 bước):                      │
-│   1. ___ ──> 2. ___ ──> 3. ___ ──> 4. ___                   │
+│   1. Quản đốc và chủ thầu báo cáo tại chỗ ──> 2. Chủ thầu giám định tiến độ/chất lượng ──> 3. Điều phối tài nguyên và nhân lực ──> 4. Đánh giá sau hoàn thiện                   │
 │                                                             │
-│ Bước nào tốn thời gian/lỗi nhất? ___ (⏱ ___ phút/lượt)      │
-│ AI có thể nhảy vào hỗ trợ ở bước nào? _____________________ │
+│ Bước nào tốn thời gian/lỗi nhất? Giám định tiến độ (⏱ N phút/lượt)      │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? Quản lý tiến độ và chu kỳ thi công, quản lý nhân sự trong công trình │
 │                                                             │
-│ Đo thành công bằng gì (Metric có số)? ______________________ │
+│ Đo thành công bằng gì (Metric có số)? Tiến độ thi công giảm rõ so với các dự án chưa thí điểm │
 │   VD: "Giảm thời gian soạn phản hồi từ 10 min ──> under 2 min"│
 │                                                             │
-│ Quick Architecture: [ ] No AI  [ ] Rule  [ ] LLM  [ ] Agent │
+│ Quick Architecture: [ ] No AI  [ ] Rule  [ ] LLM  [X] Agent │
 └─────────────────────────────────────────────────────────────┘
 ```
 
