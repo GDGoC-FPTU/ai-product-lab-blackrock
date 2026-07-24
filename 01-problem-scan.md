@@ -138,7 +138,7 @@ Vấn đề thực chất nằm ở dữ liệu đầu vào, không phải ở s
 
 | Field | Nội dung chi tiết |
 |---|---|
-| **1. Actor / Operator** | Ai đang thực hiện tác vụ hằng ngày? |
+| **1. Actor / Operator** | Ai đang thực hiện tác vụ hằng ngày? | 
 | **2. Current Workflow** | Mô tả tóm tắt quy trình thủ công hiện tại và công cụ sử dụng. |
 | **3. Bottleneck** | Bước nào chậm, lỗi, hoặc cần xử lý ngôn ngữ tự động nhiều nhất? |
 | **4. Business Impact** | Tổn thất thực tế đo bằng thời gian, chi phí, hoặc SLA của Vingroup. |

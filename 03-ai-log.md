@@ -1,0 +1,3 @@
+Cảm nhận sau bài tập nhóm AI
+
+Tôi cảm thấy rất tự hào và nể phục teammate vì có thể phát triển từ ýt tưởng gốc ra xa như thế này. Tuy nhiên vẫn có một vài technical issues cũng như việc hoạt động giữa teammate do thời gian thực sự có hạn. Tuy nhiên, bài tập đã đặt nền tảng rất vững chắc cho các tình huống thực tế về sau. Mô hình agent mà team đã xây dựng để quản lý và điều dẫn nhân lực cho các công trình và các tiêu đề/dự án trong công trình có tiềm năng áp dụng thực tế trong hoạt động xây dựng không chỉ tại vincons mà các doanh nghiệp nhà thầu khác. 
