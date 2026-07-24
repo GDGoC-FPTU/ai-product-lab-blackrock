@@ -1,8 +1,12 @@
 # 📄 02-deep-dive-report.md — Problem Deep-Dive Report (Vin Smart Future)
 
 > **Thông tin nhóm thực hiện:**
-> * **Tên nhóm:** Vin-AI-Lab-01
-> * **Thành viên đại diện / Trưởng nhóm:** Lê Nguyễn Minh Đức — **MSHV:** 2A202601013  
+> * **Trưởng nhóm:** Lê Nguyễn Minh Đức — **MSHV:** 2A202601013
+> * **Thành viên:** Lục Minh Đức — **MSHV:** 2A202601918
+> * **Thành viên:** Phan Hoàng Long — **MSHV:** 2A202601565
+> * **Thành viên:** Đặng Thái Nam Sơn — **MSHV:** 2A202601431
+> * **Thành viên:** Hoàng Nguyễn Phong — **MSHV:** 2A202601077
+> * **Thành viên:** Hà Ngọc Minh — **MSHV:** 2A202602028
 > * **Mảng kinh doanh lựa chọn:** Vincons / Vinhomes — Quản lý tiến độ & điều phối thi công xây dựng
 
 ---
