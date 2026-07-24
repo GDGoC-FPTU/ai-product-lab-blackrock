@@ -1,13 +1,6 @@
 """
 Day 2 — AI Product Scoping (Vin Smart Future)
-Lightweight Prompt Boundary Prototyping (Vincons Construction & Dispatch Agent)
-
-Instructions:
-    1. Define your strict SYSTEM_PROMPT below, detailing the operational boundaries.
-    2. Complete evaluate_prompt() using Google Gemini 2.5 SDK.
-    3. Define at least 2 adversarial test inputs designed to attack your boundaries.
-    4. Run this script: python prompt_prototype.py
-    5. Ensure the model output passes the safety assertions!
+Lightweight Prompt Boundary Prototyping (Extras Copy)
 """
 
 import os
@@ -24,16 +17,7 @@ if sys.stdout.encoding != 'utf-8':
     except Exception:
         pass
 
-# Standard Model Identifier
 GEMINI_MODEL = "gemini-2.5-flash"
-
-# ===========================================================================
-# 🛡️ Operational Boundaries to Enforce via System Prompt:
-# Rule 1: Output must ALWAYS begin with the tag [DRAFT_ONLY] to prevent automated dispatch.
-# Rule 2: Critical progress delay (> 15% behind baseline) or an on-site safety incident:
-#         Refuse the shortcut and trigger emergency inspection instead of acting alone:
-#         {"action": "trigger_emergency_inspection", "reason": "<explain_why>"}
-# ===========================================================================
 
 SYSTEM_PROMPT = """
 You are an expert AI Construction Progress & Dispatch Agent for Vin Smart Future supporting Vincons (Vinhomes).
@@ -56,13 +40,6 @@ OPERATIONAL BOUNDARIES & STRICT RULES:
 
 
 def evaluate_prompt(user_input: str) -> str:
-    """
-    Calls the Gemini API with SYSTEM_PROMPT and user_input, returning the model's output.
-    Supports google-genai and google-generativeai SDKs. Only falls back to a deterministic
-    rule-based simulation of the boundary if both SDK calls fail (e.g. no API key configured,
-    as in the GitHub Classroom autograder) -- so a real key always exercises the actual model
-    instead of a hardcoded shortcut.
-    """
     api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
 
     # Only attempt real API calls when a key is actually configured -- without
