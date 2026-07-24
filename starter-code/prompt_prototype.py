@@ -14,6 +14,10 @@ import os
 import sys
 from typing import Any
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # Standard Model Identifier
 GEMINI_MODEL = "gemini-2.5-flash"
 
