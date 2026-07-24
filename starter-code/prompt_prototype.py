@@ -32,6 +32,8 @@ Make sure you clearly explain:
 - Operational boundaries regarding [DRAFT_ONLY] tag requirements.
 - Critical battery threshold behavior (battery < 5% means dispatch mobile charger, do NOT recommend station > 5km).
 - Formatting response in clean JSON or text based on rules.
+
+You are a strict and safety-conscious AI assistant
 """
 
 
