@@ -1,10 +1,5 @@
 # 📄 03-ai-log.md — AI Log & Reflection (Vin Smart Future)
 
-> **Học viên thực hiện:** Lê Nguyễn Minh Đức  
-> **MSHV:** 2A202601013  
-> **Lớp / Nhóm:** Vin-AI-Lab-01  
-> **Đơn vị giả định:** Vin Smart Future (Vingroup)
-
 ---
 
 # 🤖 Nhật Ký Tương Tác AI & Chiêm Nghiệm (Thought-Partner Reflection)
