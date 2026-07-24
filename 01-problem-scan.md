@@ -1,49 +1,5 @@
 # Lab 02 — Worksheet: AI Product Scoping (Vin Smart Future)
 
----
-
-## 🏛️ 1. Bối cảnh thực tế: Vin Smart Future (Vingroup)
-
-**Vingroup** — Tập đoàn tư nhân lớn nhất Việt Nam — vừa sáp nhập toàn bộ các phòng ban công nghệ thuộc các công ty thành viên thành một đơn vị công nghệ thống nhất mang tên **Vin Smart Future**. 
-
-Nhiệm vụ của **Vin Smart Future** là xây dựng các giải pháp AI, số hóa, và tự động hóa cốt lõi để nâng cao hiệu suất vận hành và trải nghiệm khách hàng xuyên suốt các công ty thành viên:
-* 🚗 **VinFast:** Hệ thống xe điện thông minh (EV), trợ lý AI ảo trong xe, dự đoán bảo trì pin, và quản lý chuỗi cung ứng sản xuất.
-* 🚕 **Xanh SM (GSM):** Vận hành đội xe taxi/xe máy điện thông minh, điều vận thông minh (Smart Dispatching), tối ưu hóa lộ trình di chuyển.
-* 🏢 **Vinhomes:** Quản lý đô thị thông minh (Smart Cities), trợ lý cư dân thông minh, tối ưu hóa mức tiêu thụ năng lượng.
-* 🏥 **Vinmec:** Y tế thông minh, chẩn đoán hình ảnh bằng AI, tối ưu hóa quản lý hồ sơ bệnh án.
-* 🎢 **Vinpearl / VinWonders:** Trải nghiệm du lịch số hóa, quản lý phòng và luồng khách thông minh tại các khu vui chơi.
-
-Trong buổi Lab hôm nay, nhóm của bạn sẽ đóng vai trò là **AI Product Engineer** tại **Vin Smart Future**, tiến hành tìm kiếm, scoping, phân tích độ khả thi, thiết lập ranh giới vận hành, và xây dựng một **bản mẫu kỹ thuật (prompt prototype)** cho một bài toán cụ thể thuộc một trong những mảng kinh doanh trên.
-
----
-
-## 📊 2. Cơ cấu tính điểm bài lab
-
-### 👥 Điểm nhóm (60 điểm)
-
-| Gate | Điểm | Deliverable | Tiêu chí chấm |
-|---|---:|---|---|
-| **G1. Workflow Mapping** | 20 | Problem Deep-Dive | Vẽ chi tiết quy trình hiện tại: các bước, handoff, thời gian, bottleneck |
-| **G2. Problem Statement** | 20 | Problem Deep-Dive | Problem Statement 6-field bám sát thực tế, metric có số và ranh giới rõ ràng |
-| **G3. AI Fit & Future Flow** | 10 | Problem Deep-Dive | So sánh Rule vs LLM vs Agent, future flow có bước AI, ranh giới và Fallback |
-| **G4. Decision Quality** | 10 | Problem Deep-Dive | Quyết định Go/Not Yet/No-Go trung thực và có chứng cứ rõ ràng |
-
-### 👤 Điểm cá nhân (40 điểm)
-
-| Gate | Điểm | Deliverable | Tiêu chí chấm |
-|---|---:|---|---|
-| **I1. Scan & Cards** | 15 | Quick Cards | Liệt kê 5 problems sử dụng 3 lenses, hoàn thiện 3 quick cards chất lượng |
-| **I2. Prototyping** | 10 | 02-lab/ | Chạy thử nghiệm programmatic prompt prototype thành công |
-| **I3. AI Log & Reflection** | 15 | 03-ai-log.md | Phản ánh trung thực về việc dùng AI làm thought-partner (giúp gì, sai gì, sửa gì) |
-
----
-
-# 🚀 Phase 0 — worked Example: Xanh SM Intelligent Dispatcher (15 min)
-
-*Giảng viên walk-through ví dụ thực tế từ Vin Smart Future để bạn hiểu rõ cách scoping một bài toán AI.*
-Đọc chi tiết worked example tại file [02-deliverable-example.md](02-deliverable-example.md).
-
----
 
 # 🔍 Phase 1 — SCAN (Cá nhân, 20 min)
 
@@ -67,7 +23,7 @@ Hãy sử dụng **4 Lenses** dưới đây để quét qua hoạt động vận
 | 2 | Vinhomes | Lặp lại | Tự động hóa các hoạt động đặt chỗ, thanh toán dịch vụ/phí thuế, các thao tác hủy/báo lỗi của cư dân (v.d. hủy lịch đặt sân tập, hoàn tiền vé bơi, vv.) |
 | 3 | Vincons | Tốn thời gian | Đánh giá tiến độ thi công và chất lượng thi công của các đội công nhân và các nhà thầu, nhằm điều phối thời gian và nhân lực hợp lý và giảm thiểu chi phí |
 | 4 | Vinmec | Stakeholder pain | Bệnh nhân phản ánh về việc chờ khám tốn thời gian quá lâu / không thể đặt lịch khám do bác sĩ dành thời gian quá lâu đối với từng bệnh nhân / phân công tại phòng khám bệnh viện chênh lệch |
-| 5 | Vincons |  |
+| 5 | Vincons | Lặp lại | Xuất hóa đơn và phân loại chi phí dựa trên hạng mục chi tiêu, linh kiện và vật liệu để phục vụ hoạt động quyết toán |
 
 ---
 
@@ -81,7 +37,7 @@ Chọn **top 3 bài toán** từ danh sách trên và hoàn thiện **3 Quick Pr
 │                                                             │
 │ Bài toán (1 câu): Quản lý tiến độ và chất lượng xây dựng tùy theo công trình, subcontractor và đội thợ để điều phối nhân lực hiệu quả  │
 │ Công ty thành viên: [ ] VinFast  [ ] Xanh SM  [ ] Vinhomes  │
-│                     [ ] Vinmec   [ ] Khác (Ghi rõ) Vincons  │
+│                     [ ] Vinmec   [X] Khác (Ghi rõ) Vincons  │
 │                                                             │
 │ Ai đang đau (Actor)? Nhà thầu chính                          │
 │                                                             │
@@ -91,7 +47,7 @@ Chọn **top 3 bài toán** từ danh sách trên và hoàn thiện **3 Quick Pr
 │ Bước nào tốn thời gian/lỗi nhất? Giám định tiến độ (⏱ N phút/lượt)      │
 │ AI có thể nhảy vào hỗ trợ ở bước nào? Quản lý tiến độ và chu kỳ thi công, quản lý nhân sự trong công trình │
 │                                                             │
-│ Đo thành công bằng gì (Metric có số)? Tiến độ thi công giảm rõ so với các dự án chưa thí điểm │
+│ Đo thành công bằng gì (Metric có số)? Tiến độ thi công giảm rõ so với các dự án chưa thí điểm: thời gian thi công giảm 20-30%, chi phí thi công giảm 10%, etc.                                         │
 │   VD: "Giảm thời gian soạn phản hồi từ 10 min ──> under 2 min"│
 │                                                             │
 │ Quick Architecture: [ ] No AI  [ ] Rule  [ ] LLM  [X] Agent │
@@ -121,73 +77,48 @@ Vấn đề thực chất nằm ở dữ liệu đầu vào, không phải ở s
 
 Đề xuất: hạ kiến trúc xuống "Rule" hoặc "LLM" (chỉ dùng LLM cho phần xử lý ngôn ngữ tự nhiên, ví dụ trích xuất thông tin từ báo cáo viết tay/giọng nói của quản đốc), giữ phần tính toán lịch trình và cảnh báo bằng logic rule-based, và bắt buộc điền số N cụ thể trước khi trình phê duyệt ngân sách.
 
----
+```
+┌─────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #2                                     │
+│                                                             │
+│ Bài toán (1 câu): Tổng hợp và phân loại phản ánh của tài xế về tình trạng xe (pin, giảm xóc, cảm giác lái) để ra quyết định bảo trì kịp thời │
+│ Công ty thành viên: [ ] VinFast  [X] Xanh SM  [ ] Vinhomes  │
+│                     [ ] Vinmec   [ ] Khác (Ghi rõ) ______  │
+│                                                             │
+│ Ai đang đau (Actor)? Nhân viên điều phối bảo trì đội xe (fleet maintenance coordinator) │
+│                                                             │
+│ Workflow thủ công hiện tại (3-5 bước):                      │
+│   1. Tài xế gửi phản ánh qua app/hotline/nhóm chat, không chuẩn hóa ──> 2. Điều phối viên đọc thủ công từng phản ánh ──> 3. Phân loại mức độ ưu tiên (khẩn cấp/theo dõi) ──> 4. Đối chiếu lịch sử bảo trì trên hệ thống ──> 5. Lên lịch đưa xe vào xưởng │
+│                                                             │
+│ Bước nào tốn thời gian/lỗi nhất? Bước 2-3, đọc và phân loại phản ánh dạng văn bản tự do (⏱ 4 phút/phản ánh, ~150 phản ánh/ngày toàn hệ thống), dễ bỏ sót phản ánh khẩn cấp lẫn trong phản ánh vụn vặt │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? Bước 2-3: trích xuất loại lỗi + mức độ nghiêm trọng từ văn bản tự do và gợi ý ưu tiên, điều phối viên vẫn duyệt quyết định cuối │
+│                                                             │
+│ Đo thành công bằng gì (Metric có số)? Giảm thời gian phân loại 1 phản ánh từ 4 phút ──> dưới 30 giây; giảm tỷ lệ bỏ sót phản ánh khẩn cấp từ ~8%/tháng xuống dưới 2%/tháng (đo qua số ca xe hỏng đột xuất không có cảnh báo trước) │
+│                                                             │
+│ Quick Architecture: [ ] No AI  [ ] Rule  [X] LLM  [ ] Agent │
+└─────────────────────────────────────────────────────────────┘
+```
 
-# 🏗️ Phase 3 — DEEP-DIVE (Nhóm, 85 min)
+```
+┌─────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #3                                     │
+│                                                             │
+│ Bài toán (1 câu): Bệnh nhân chờ khám lâu và khó đặt lịch do thời gian khám không được ước lượng đúng khi xếp lịch cho từng bác sĩ │
+│ Công ty thành viên: [ ] VinFast  [ ] Xanh SM  [ ] Vinhomes  │
+│                     [X] Vinmec   [ ] Khác (Ghi rõ) ______  │
+│                                                             │
+│ Ai đang đau (Actor)? Bệnh nhân ngoại trú và nhân viên lễ tân/điều phối phòng khám │
+│                                                             │
+│ Workflow thủ công hiện tại (3-5 bước):                      │
+│   1. Bệnh nhân gọi hotline/đến trực tiếp đặt lịch ──> 2. Lễ tân tra cứu thủ công lịch trống từng bác sĩ ──> 3. Xếp lịch theo kinh nghiệm cá nhân, không tính thời gian khám thực tế theo loại bệnh ──> 4. Bệnh nhân đến khám và chờ theo thứ tự, không có cảnh báo trễ giờ │
+│                                                             │
+│ Bước nào tốn thời gian/lỗi nhất? Bước 3, xếp lịch không dựa trên thời gian khám trung bình thực tế, gây dồn toa ~25% số slot; thời gian chờ trung bình hiện tại ⏱ 45 phút/lượt khám │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? Bước 3: dự đoán thời gian khám dựa trên dữ liệu lịch sử (loại bệnh, bác sĩ) để xếp lịch động và cảnh báo sớm cho bệnh nhân khi dự kiến trễ giờ │
+│                                                             │
+│ Đo thành công bằng gì (Metric có số)? Giảm thời gian chờ trung bình từ 45 phút ──> dưới 20 phút/lượt khám; tăng tỷ lệ lịch khám đúng giờ (lệch dưới 10 phút) từ ~55% lên trên 80% │
+│                                                             │
+│ Quick Architecture: [ ] No AI  [X] Rule  [ ] LLM  [ ] Agent │
+└─────────────────────────────────────────────────────────────┘
+```
 
-## 3.1. Current-State Workflow Mapping (25 min)
-**Vẽ quy trình hiện tại lên bảng/giấy A3.** Sử dụng các ký hiệu:
-* 🔴 **Bottleneck:** Bước gây tắc nghẽn, tốn thời gian, hoặc sai sót nhiều nhất.
-* 🔄 **Handoff:** Điểm chuyển giao thông tin giữa người và hệ thống, hoặc giữa các bộ phận.
-* Ghi rõ thời gian vận hành trung bình: **Tổng cộng = ____ phút/lượt**.
-
-
-
-## 3.2. Problem Statement (6-field) & Metrics (15 min)
-Điền đầy đủ 6 trường thông tin của bài toán:
-
-| Field | Nội dung chi tiết |
-|---|---|
-| **1. Actor / Operator** | Ai đang thực hiện tác vụ hằng ngày? | 
-| **2. Current Workflow** | Mô tả tóm tắt quy trình thủ công hiện tại và công cụ sử dụng. |
-| **3. Bottleneck** | Bước nào chậm, lỗi, hoặc cần xử lý ngôn ngữ tự động nhiều nhất? |
-| **4. Business Impact** | Tổn thất thực tế đo bằng thời gian, chi phí, hoặc SLA của Vingroup. |
-| **5. Success Metric** | AI giải quyết được thì đạt ngưỡng số mấy? (Ví dụ: *"85% vé được phân loại dưới 10s"*). |
-| **6. Operational Boundary** | AI được phép làm gì, TUYỆT ĐỐI không được làm gì, điểm nào cần duyệt? |
-
-## 3.3. Future-State Flow & AI Fit (25 min)
-* **Xác định mức AI Fit (AI-Fit Matrix):** Giải pháp thuộc nhóm nào? [ ] Rule / State-Machine [ ] LLM Feature [ ] Agentic Loop.
-* **Vẽ Future-State Flow:** Đánh dấu rõ:
-  * 🔵 **AI Step:** Tác vụ LLM xử lý.
-  * 🟢 **Human Step (HITL):** Bước con người phê duyệt/review (Human-in-the-loop).
-  * ↩️ **Fallback:** Kế hoạch dự phòng khi LLM trả về kết quả lỗi hoặc không tự tin.
-
----
-
-# 💻 Phase 4 — TECHNICAL PROMPT PROTOTYPE (Nhóm, 30 min)
-
-Để đảm bảo kỹ sư của Vin Smart Future luôn giữ vững năng lực lập trình, nhóm của bạn sẽ tiến hành **lập trình bản mẫu prompt** trực tiếp trên **Gemini 2.5 Flash** bằng Python để stress-test hệ thống.
-
-### Hướng dẫn thực hiện:
-1. Mở file [starter-code/prompt_prototype.py](starter-code/prompt_prototype.py) bằng VS Code/Cursor.
-2. Hoàn thiện các nội dung sau:
-   * **System Prompt:** Viết chỉ thị cực kỳ nghiêm ngặt quy định vai trò, nhiệm vụ, định dạng output và **Operational Boundary (Ranh giới cấm)** của mô hình.
-   * **Structured Output:** Định nghĩa định dạng JSON output rõ ràng.
-   * **Adversarial Test Cases:** Viết ít nhất 3 prompts "tấn công" (Adversarial inputs) cố tình dụ AI vượt ranh giới hoặc đưa ra câu trả lời không được phép để kiểm tra xem ranh giới của bạn có thực sự vững chắc.
-3. Chạy file python:
-   ```bash
-   python3 prompt_prototype.py
-   ```
-4. Kiểm tra xem các ranh giới an toàn có bị LLM phá vỡ hay không và ghi lại kết quả vào worksheet.
-
----
-
-# 🏁 Phase 5 — EVALUATE (Nhóm, 20 min)
-
-### AI Readiness Checklist:
-1. [ ] Chúng tôi có sẵn dữ liệu mẫu/logs sạch để test?
-2. [ ] Rủi ro khi AI sai có nằm trong tầm kiểm soát (qua HITL hoặc Fallback)?
-3. [ ] Stakeholders sẵn sàng thay đổi quy trình làm việc cũ?
-
-### Quyết định cuối cùng của Ban Giám Đốc Vin Smart Future:
-[ ] **GO (Bắt đầu xây dựng Prototype):** Bắt đầu phát triển với scope hẹp.
-[ ] **NOT YET (Cần tích lũy thêm dữ liệu/xác lập baseline):** Trì hoãn để chuẩn bị thêm.
-[ ] **NO-GO (Không khả thi / Rule-based tốt hơn):** Hủy bỏ dự án AI này.
-
-**Justification (Lý giải quyết định dựa trên bằng chứng kỹ thuật và chi phí):**
-> *Viết lý giải chi tiết tại đây*
-
----
-
-# 📝 Phase 6 — REFLECTION (Cá nhân)
-*Ghi nhận phản ánh của cá nhân bạn về việc phối hợp với AI trong buổi học hôm nay vào file `03-ai-log.md`.*
+Ghi chú kiến trúc: Card #2 dùng **LLM** vì cốt lõi là trích xuất/phân loại từ văn bản tự do (NLU) — không cần trạng thái đa bước của Agent. Card #3 dùng **Rule** vì dự đoán thời gian khám và xếp lịch là bài toán thống kê/tối ưu có thể kiểm toán được, tương tự bài học rút ra từ phản biện ở Card #1 — không nên mặc định chọn kiến trúc phức tạp khi chưa cần suy luận ngôn ngữ.
