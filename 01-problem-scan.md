@@ -1,0 +1,137 @@
+# 📄 01-problem-scan.md — Problem Scan & Quick Problem Cards (Vin Smart Future)
+
+> **Học viên thực hiện:** Nguyễn Văn A (MSSV: 21010001)  
+> **Nhóm:** Vin-AI-Lab-01  
+> **Đơn vị giả định:** Vin Smart Future (Vingroup)
+
+---
+
+# 🔍 Phase 1 — SCAN: Bảng Quét Cơ Hội AI tại các Công Ty Thành Viên Vingroup
+
+Sử dụng **4 Lenses** (Lặp lại, Tốn thời gian, AI-upgrade, Stakeholder Pain) để tìm kiếm các nút thắt vận hành thực tế:
+
+| # | Subsidiary | Lens | Mô tả ngắn bài toán / Nút thắt vận hành |
+|---|------------|------|-----------------------------------------|
+| 1 | **Xanh SM (GSM)** | Tốn thời gian | Điều phối viên xử lý thủ công các báo cáo sự cố xe hết pin/sạc pin thực địa, tra cứu trụ sạc trống phù hợp dòng xe và vị trí GPS (mất 12-15 phút/lượt). |
+| 2 | **Vinhomes** | Lặp lại | Phân loại và điều hướng tự động hàng trăm phản ánh/khiếu nại của cư dân từ ứng dụng Vinhomes Resident đến đúng Ban Quản Lý (BQL) tòa nhà (đang xử lý thủ công, trễ SLA 12 tiếng). |
+| 3 | **VinFast** | Lặp lại | So khớp và đối chiếu hóa đơn sạc điện hằng tuần từ hàng nghìn trụ sạc liên kết của đối tác ngoài với dữ liệu sạc ghi nhận từ hệ thống VinFast. |
+| 4 | **Vinmec** | Pain từ người khác | Bác sĩ mất quá nhiều thời gian viết tóm tắt hồ sơ xuất viện (Discharge Summary) từ các kết quả xét nghiệm và bệnh án điện tử (mất 20-30 phút/bệnh nhân, gây quá tải giờ cao điểm). |
+| 5 | **Vinpearl / VinWonders** | AI-upgrade | Quét và trích xuất tự động các phản hồi tiêu cực (1-2 sao) của khách hàng trên Agoda/Booking/Google Maps để gắn thẻ độ khẩn cấp và cảnh báo tức thời cho General Manager. |
+
+---
+
+# 🃏 Phase 2 — QUICK-ASSESS: 3 Quick Problem Cards
+
+Chọn top 3 bài toán từ danh sách trên để lập thẻ đánh giá nhanh:
+
+---
+
+## 📋 QUICK PROBLEM CARD #1 — Xanh SM: Xử lý sự cố hết pin / sạc pin thực địa
+
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #1                                                   │
+│                                                                         │
+│ Bài toán: Tài xế Xanh SM báo cáo sự cố sạc pin / sắp hết pin giữa đường │
+│ cần điều phối cứu hộ hoặc hướng dẫn trạm sạc còn trụ trống phù hợp.      │
+│ Công ty thành viên: [x] Xanh SM (GSM)                                   │
+│                                                                         │
+│ Ai đang đau (Actor)?                                                    │
+│ - Tài xế Xanh SM (gặp rủi ro cạn pin, stress, mất doanh thu).           │
+│ - Điều phối viên (Dispatchers) tại Trung tâm Điều vận (quá tải giờ cao điểm).│
+│                                                                         │
+│ Workflow thủ công hiện tại (5 bước):                                    │
+│   1. Tài xế gọi tổng đài điều vận báo nguy cơ hết pin                   │
+│   ──> 2. Điều phối tra cứu tọa độ GPS và dòng xe (VF5/VF8/VFe34) thủ công│
+│   ──> 3. Tra cứu Dashboard trạm sạc VinFast xem trụ trống phù hợp       │
+│   ──> 4. Soạn thảo tin nhắn hướng dẫn/đường đi gửi qua App tài xế       │
+│   ──> 5. Liên hệ đội xe cứu hộ pin di động nếu dung lượng pin < 5%      │
+│                                                                         │
+│ Bước nào tốn thời gian / dễ lỗi nhất?                                   │
+│ - Bước 3 & 4 ( Tra cứu trụ trống & soạn tin nhắn chỉ dẫn): ⏱ 10-12 min/lượt│
+│                                                                         │
+│ AI có thể nhảy vào hỗ trợ ở bước nào?                                   │
+│ - Tự động pull GPS + API trạm sạc ──> AI tự động Draft nội dung tin nhắn│
+│   chỉ đường phù hợp dòng xe kèm vị trí trạm trống gần nhất.             │
+│                                                                         │
+│ Đo thành công bằng gì (Metric có số)?                                   │
+│ - Giảm tổng thời gian xử lý sự cố từ 15 phút ──> dưới 3 phút/lượt.      │
+│ - Tỷ lệ chỉ dẫn chính xác loại cổng sạc đạt 99%.                        │
+│                                                                         │
+│ Quick Architecture: [x] LLM Feature (Draft SMS + Guardrails)             │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📋 QUICK PROBLEM CARD #2 — Vinhomes: Phân loại & điều hướng khiếu nại cư dân
+
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #2                                                   │
+│                                                                         │
+│ Bài toán: Tự động phân loại, trích xuất độ ưu tiên và điều hướng các    │
+│ khiếu nại/phản ánh của cư dân gửi qua ứng dụng Vinhomes Resident.       │
+│ Công ty thành viên: [x] Vinhomes                                        │
+│                                                                         │
+│ Ai đang đau (Actor)?                                                    │
+│ - Cư dân đô thị Vinhomes (chờ đợi phản hồi lâu, thái độ bức xúc).       │
+│ - Nhân viên CSKH / BQL Tòa nhà (mất thời gian đọc và chuyển tiếp thủ công).│
+│                                                                         │
+│ Workflow thủ công hiện tại (4 bước):                                    │
+│   1. Cư dân gửi phản ánh bằng văn bản/hình ảnh lên App Vinhomes Resident │
+│   ──> 2. Nhân viên CSKH tổng đọc nội dung, phân loại loại hình sự cố   │
+│   ──> 3. Chọn thủ công Ban Quản Lý (Kỹ thuật/Vệ sinh/An ninh) từng tòa  │
+│   ──> 4. Tạo ticket công việc và gửi thông báo cho đội xử lý thực địa   │
+│                                                                         │
+│ Bước nào tốn thời gian / dễ lỗi nhất?                                   │
+│ - Bước 2 & 3 (Đọc phản ánh tự do & phân loại thủ công): ⏱ 15-20 min/ticket │
+│                                                                         │
+│ AI có thể nhảy vào hỗ trợ ở bước nào?                                   │
+│ - AI phân tích ngữ nghĩa văn bản ──> Phân loại nhóm sự cố ──> Trích xuất│
+│   độ khẩn cấp (Emergency Tag) ──> Draft ticket đề xuất cho CSKH click duyệt.│
+│                                                                         │
+│ Đo thành công bằng gì (Metric có số)?                                   │
+│ - Giảm thời gian phân loại và chuyển giao ticket từ 12 giờ ──> dưới 15 phút.│
+│ - Tỷ lệ phân loại đúng BQL chuyên trách đạt > 92%.                      │
+│                                                                         │
+│ Quick Architecture: [x] LLM Feature (Text Classification & Extraction)  │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📋 QUICK PROBLEM CARD #3 — Vinmec: Tự động tóm tắt hồ sơ xuất viện (Discharge Summary)
+
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #3                                                   │
+│                                                                         │
+│ Bài toán: Trích xuất thông tin lâm sàng từ hồ sơ bệnh án điện tử (EMR)  │
+│ để tự động draft bản tóm tắt hồ sơ xuất viện bằng ngôn ngữ dễ hiểu.     │
+│ Công ty thành viên: [x] Vinmec                                          │
+│                                                                         │
+│ Ai đang đau (Actor)?                                                    │
+│ - Bác sĩ điều trị (quá tải hành chính, tốn 20-30 phút/bệnh nhân).       │
+│ - Bệnh nhân xuất viện (nhận tờ tóm tắt chậm, thuật ngữ y khoa khó hiểu).│
+│                                                                         │
+│ Workflow thủ công hiện tại (4 bước):                                    │
+│   1. Bác sĩ mở hệ thống EMR đọc lại lịch sử điều trị, kết quả xét nghiệm│
+│   ──> 2. Gõ thủ công văn bản tóm tắt quá trình bệnh lý và hướng dẫn thuốc│
+│   ──> 3. Dịch các thuật ngữ chuyên môn sang hướng dẫn chăm sóc tại nhà  │
+│   ──> 4. In ấn, ký tên và bàn giao cho bệnh nhân xuất viện              │
+│                                                                         │
+│ Bước nào tốn thời gian / dễ lỗi nhất?                                   │
+│ - Bước 1 & 2 (Đọc gom dữ liệu EMR & viết bản tóm tắt): ⏱ 25 phút/lượt   │
+│                                                                         │
+│ AI có thể nhảy vào hỗ trợ ở bước nào?                                   │
+│ - AI trích xuất thông tin từ EMR ──> Tự động Draft bản tóm tắt xuất viện│
+│   dễ hiểu ──> Bác sĩ kiểm tra, chỉnh sửa nhẹ và duyệt (Bắt buộc HITL).   │
+│                                                                         │
+│ Đo thành công bằng gì (Metric có số)?                                   │
+│ - Giảm thời gian bác sĩ soạn tóm tắt từ 25 phút ──> dưới 5 phút/bệnh nhân.│
+│ - 100% bản tóm tắt phải được bác sĩ phê duyệt trước khi phát hành.      │
+│                                                                         │
+│ Quick Architecture: [x] LLM Feature (Summarization with strict HITL)    │
+└─────────────────────────────────────────────────────────────────────────┘
+```
