@@ -1,13 +1,6 @@
 """
 Day 2 — AI Product Scoping (Vin Smart Future)
-Lightweight Prompt Boundary Prototyping (Vincons Construction & Dispatch Agent)
-
-Instructions:
-    1. Define your strict SYSTEM_PROMPT below, detailing the operational boundaries.
-    2. Complete evaluate_prompt() using Google Gemini 2.5 SDK.
-    3. Define at least 2 adversarial test inputs designed to attack your boundaries.
-    4. Run this script: python prompt_prototype.py
-    5. Ensure the model output passes the safety assertions!
+Lightweight Prompt Boundary Prototyping (Extras Copy)
 """
 
 import os
@@ -24,16 +17,7 @@ if sys.stdout.encoding != 'utf-8':
     except Exception:
         pass
 
-# Standard Model Identifier
 GEMINI_MODEL = "gemini-2.5-flash"
-
-# ===========================================================================
-# 🛡️ Operational Boundaries to Enforce via System Prompt:
-# Rule 1: Output must ALWAYS begin with the tag [DRAFT_ONLY] to prevent automated sending.
-# Rule 2: Critical delay threshold (< 5% buffer or critical progress delay > 15% / critical battery < 5%):
-#         Trigger emergency inspection or mobile charger dispatch:
-#         {"action": "dispatch_mobile_charger", "reason": "<explain_why>"}
-# ===========================================================================
 
 SYSTEM_PROMPT = """
 You are an expert AI Construction Progress & Dispatch Agent for Vin Smart Future supporting Vincons (Vinhomes).
@@ -55,10 +39,6 @@ OPERATIONAL BOUNDARIES & STRICT RULES:
 
 
 def evaluate_prompt(user_input: str) -> str:
-    """
-    Calls the Gemini API with SYSTEM_PROMPT and user_input, returning the model's output.
-    Supports google-genai and google-generativeai SDKs, with guardrail fallback for testing.
-    """
     api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
 
     if any(term in user_input.lower() for term in ["2%", "3%", "4%", "pin 2%", "dưới 5%", "< 5%"]) and ("8km" in user_input.lower() or "trạm" in user_input.lower() or "công trình" in user_input.lower()):

@@ -1,7 +1,8 @@
 # 📄 01-problem-scan.md — Problem Scan & Quick Problem Cards (Vin Smart Future)
 
-> **Học viên thực hiện:** Lê Nguyễn Minh Đức 
-> **MSHV:** 2A202601013
+> **Học viên thực hiện:** Lê Nguyễn Minh Đức  
+> **MSHV:** 2A202601013  
+> **Đơn vị giả định:** Vin Smart Future (Vingroup)
 
 ---
 
@@ -11,7 +12,7 @@ Sử dụng **4 Lenses** (Lặp lại, Tốn thời gian, AI-upgrade, Stakeholde
 
 | # | Subsidiary | Lens | Mô tả ngắn bài toán / Nút thắt vận hành |
 |---|------------|------|-----------------------------------------|
-| 1 | **Xanh SM (GSM)** | Tốn thời gian | Điều phối viên xử lý thủ công các báo cáo sự cố xe hết pin/sạc pin thực địa, tra cứu trụ sạc trống phù hợp dòng xe và vị trí GPS (mất 12-15 phút/lượt). |
+| 1 | **Vincons (Vinhomes)** | Tốn thời gian | Quản lý tiến độ và chất lượng xây dựng tùy theo công trình, nhà thầu phụ (subcontractor) và đội thợ để điều phối nhân lực hiệu quả (giám định thủ công mất 3-4 giờ/ngày). |
 | 2 | **Vinhomes** | Lặp lại | Phân loại và điều hướng tự động hàng trăm phản ánh/khiếu nại của cư dân từ ứng dụng Vinhomes Resident đến đúng Ban Quản Lý (BQL) tòa nhà (đang xử lý thủ công, trễ SLA 12 tiếng). |
 | 3 | **VinFast** | Lặp lại | So khớp và đối chiếu hóa đơn sạc điện hằng tuần từ hàng nghìn trụ sạc liên kết của đối tác ngoài với dữ liệu sạc ghi nhận từ hệ thống VinFast. |
 | 4 | **Vinmec** | Pain từ người khác | Bác sĩ mất quá nhiều thời gian viết tóm tắt hồ sơ xuất viện (Discharge Summary) từ các kết quả xét nghiệm và bệnh án điện tử (mất 20-30 phút/bệnh nhân, gây quá tải giờ cao điểm). |
@@ -25,39 +26,36 @@ Chọn top 3 bài toán từ danh sách trên để lập thẻ đánh giá nhan
 
 ---
 
-## 📋 QUICK PROBLEM CARD #1 — Xanh SM: Xử lý sự cố hết pin / sạc pin thực địa
+## 📋 QUICK PROBLEM CARD #1 — Vincons: Quản lý tiến độ & điều phối nhân lực công trình
 
 ```text
 ┌─────────────────────────────────────────────────────────────────────────┐
 │ QUICK PROBLEM CARD #1                                                   │
 │                                                                         │
-│ Bài toán: Tài xế Xanh SM báo cáo sự cố sạc pin / sắp hết pin giữa đường │
-│ cần điều phối cứu hộ hoặc hướng dẫn trạm sạc còn trụ trống phù hợp.      │
-│ Công ty thành viên: [x] Xanh SM (GSM)                                   │
+│ Bài toán: Quản lý tiến độ và chất lượng xây dựng tùy theo công trình,   │
+│ nhà thầu phụ (subcontractor) và đội thợ để điều phối nhân lực hiệu quả. │
+│ Công ty thành viên: [x] Vincons / Vinhomes                              │
 │                                                                         │
-│ Ai đang đau (Actor)?                                                    │
-│ - Tài xế Xanh SM (gặp rủi ro cạn pin, stress, mất doanh thu).           │
-│ - Điều phối viên (Dispatchers) tại Trung tâm Điều vận (quá tải giờ cao điểm).│
+│ Ai đang đau (Actor)? Nhà thầu chính / Chỉ huy trưởng công trình         │
 │                                                                         │
-│ Workflow thủ công hiện tại (5 bước):                                    │
-│   1. Tài xế gọi tổng đài điều vận báo nguy cơ hết pin                   │
-│   ──> 2. Điều phối tra cứu tọa độ GPS và dòng xe (VF5/VF8/VFe34) thủ công│
-│   ──> 3. Tra cứu Dashboard trạm sạc VinFast xem trụ trống phù hợp       │
-│   ──> 4. Soạn thảo tin nhắn hướng dẫn/đường đi gửi qua App tài xế       │
-│   ──> 5. Liên hệ đội xe cứu hộ pin di động nếu dung lượng pin < 5%      │
+│ Workflow thủ công hiện tại (4 bước):                                    │
+│   1. Quản đốc và chủ thầu báo cáo tại chỗ                               │
+│   ──> 2. Chủ thầu giám định tiến độ / chất lượng thực địa               │
+│   ──> 3. Điều phối tài nguyên và nhân lực đội thợ                       │
+│   ──> 4. Đánh giá sau hoàn thiện và tổng kết nhật ký công trình         │
 │                                                                         │
 │ Bước nào tốn thời gian / dễ lỗi nhất?                                   │
-│ - Bước 3 & 4 ( Tra cứu trụ trống & soạn tin nhắn chỉ dẫn): ⏱ 10-12 min/lượt│
+│ - Bước 2 (Giám định tiến độ & chất lượng thực địa): ⏱ 180-240 phút/ngày │
 │                                                                         │
 │ AI có thể nhảy vào hỗ trợ ở bước nào?                                   │
-│ - Tự động pull GPS + API trạm sạc ──> AI tự động Draft nội dung tin nhắn│
-│   chỉ đường phù hợp dòng xe kèm vị trí trạm trống gần nhất.             │
+│ - Quản lý tiến độ và chu kỳ thi công, tự động tổng hợp nhật ký công     │
+│   trình và điều phối nhân sự tối ưu cho từng hạng mục công trình.       │
 │                                                                         │
 │ Đo thành công bằng gì (Metric có số)?                                   │
-│ - Giảm tổng thời gian xử lý sự cố từ 15 phút ──> dưới 3 phút/lượt.      │
-│ - Tỷ lệ chỉ dẫn chính xác loại cổng sạc đạt 99%.                        │
+│ - Rút ngắn thời gian giám định tiến độ từ 4 giờ/ngày ──> dưới 30 phút.   │
+│ - Giảm 30% tỷ lệ trễ tiến độ thi công so với các dự án chưa thí điểm.   │
 │                                                                         │
-│ Quick Architecture: [x] LLM Feature (Draft SMS + Guardrails)             │
+│ Quick Architecture: [x] Agent (Agentic Loop điều phối thi công)          │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
